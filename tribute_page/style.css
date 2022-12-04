@@ -1,0 +1,123 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background: linear-gradient(to right,#552084 30%, #FDBA21);
+    width: 100%;
+    min-height: 100vh;
+    border: 5px solid #552084;
+}
+
+.content{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.top-section{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-section h1{
+    font-size: 32px;
+    font-family: "Lato", sans-serif;
+    color: #552084;
+    letter-spacing: 6px;
+    font-weight: 400;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-decoration: underline black;
+}
+
+.top-section h4{
+    font-size: 15px;
+    font-family: "Lato", sans-serif;
+    color: #552084;
+    letter-spacing: 0.5px;   
+    text-align: center;
+}
+
+.image-container, img{
+    width: 300px;
+    height: 280px;
+    border-style: double;
+    border-color: #FDBA21;
+}
+
+.about-section{
+    margin-top: 30px;
+}
+
+.about-section h2{
+    font-size: 60px;
+    font-family: 'Zen Dots', cursive;
+    letter-spacing: 4px;
+    font-weight: 20;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: left;
+    background-color: #552084;
+    border-radius: 10px 0px;
+    color: #111;
+}
+
+.about-section p{
+    padding: 10px;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 30px;
+    letter-spacing: 1.2px;
+}
+
+.dear-basketball{
+    margin-top: 15px;
+    background-position:center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    max-height:fit-content;
+    background-image: url(./img/3.jpg);
+    font-size: 20px;
+}
+
+.dear-basketball h2{
+    color: #552084;
+    font-size: 50px;
+    letter-spacing: 5px;
+    font-family: 'Gruppo', cursive;
+    text-align: center;
+    text-decoration: underline 2px;
+}
+
+.dear-basketball h3{
+    color: #111;
+    font-size: 20px;
+    letter-spacing: 5px;
+    line-height: 1.5;
+    margin-top: 25px;
+    margin-left: 15px;
+    font-family: 'Gruppo', cursive;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.dear-basketball p{
+    color: #FDBA21;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+    letter-spacing: 1.2px;
+    text-align: center;
+}
+
+.dear-basketball b{
+    color: #fff;
+    font-size: 25px;
+}
