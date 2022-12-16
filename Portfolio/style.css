@@ -119,6 +119,7 @@ html::-webkit-scrollbar-track{
 }
 
 .container .information .about p{
+    text-transform: none;
     font-size: 17px;
     line-height: 2;
     padding: 5px 0;
