@@ -1,26 +1,82 @@
-let otp_boxes=document.querySelectorAll(".otp")
-otp_boxes[0].focus();
-const otp='123456'
-let bag=""
-otp_boxes.forEach((e,i)=>{
-    e.addEventListener("keydown",(event)=>{
-        // console.log(event.key); 
-        
-        if(event.key >= 0 && event.key <= 9){ 
-            if(i === otp_boxes.length-1){
-                return;   
-               }
-            e.classList.add("valid")
-            setTimeout(() => {
-             otp_boxes[i + 1].focus();
-            }, 100);
-        } else if(event.key == "Backspace"){
-            otp_boxes[i - 1].classList.remove("valid")
-            setTimeout(() => {
-                otp_boxes[i - 1].value = ""
-              otp_boxes[i - 1].focus();
-            }, 100);
+const form = document.querySelector("#otp-form");
+const inputs = document.querySelectorAll(".otp-input");
+const verifyBtn = document.querySelector("#verify-btn");
+
+const isAllInputFilled = () => {
+    return Array.from(inputs).every((input) => input.value);
+};   
+
+const getOtpText = () => {
+    let text = "";
+    inputs.forEach((input) => {
+        text += input.value;
+    });
+
+    return text;
+}; 
+
+const verifyOTP = () => {
+    if(isAllInputFilled()) {
+        const OTP = getOtpText();
+        alert(`Your OTP is ${OTP}`);
+    }
+};
+
+const toggleFilledClass = (field) => {
+    if(field.value) {
+        field.classList.add("filled")
+    }else{
+        field.classList.remove("filled")
+    }
+};
+
+form.addEventListener("input", (e) => {
+    const target = e.target;
+    const value = target.value;
+    toggleFilledClass(target);
+    if(target.nextElementSibling){
+        target.nextElementSibling.focus();
+    }
+        verifyOTP();
+});
+
+inputs.forEach((input,currentIndex) => {
+    toggleFilledClass(input);
+
+    //paste event
+    input.addEventListener("paste", (e) => {
+        e.preventDefault();
+        const text = e.clipboardData.getData("text")
+        inputs.forEach((item, index) => {
+            if(index >= currentIndex && text[index-currentIndex]){
+                item.focus();
+                item.value = text[index - currentIndex] || "";
+                toggleFilledClass(item);
+                verifyOTP();
+            }
+        });
+    });
+
+    //backspace  event
+    input.addEventListener('keydown', (e) => {
+        if(e.keyCode === 8) {
+            e.preventDefault();
+            input.value = '';
+            toggleFilledClass(input);
+            if(input.previousElementSibling){
+                input.previousElementSibling.focus();
+            }
+        }else{
+            if(input.value && input.nextElementSibling) {
+                input.nextElementSibling.focus();
+            }
         }
     });
 });
+
+verifyOTP.addEventListener("click", (e) => {
+    verifyOTP();
+});
+
+
 
